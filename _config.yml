@@ -31,8 +31,9 @@ tagline: |
   chenyubu988 [at] gmail [dot] com
 
 author: "Chenyu Bu"
-baseurl: "/buchenyu.github.io"  # because this is a project site
-url: "https://chenyu988.github.io"  # DO NOT include baseurl here
+baseurl: "/buchenyu.github.io"
+url: "https://chenyu988.github.io"
+
 github_username: Chenyu988
 
 google_analytics:
