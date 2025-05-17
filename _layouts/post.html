@@ -11,21 +11,21 @@
 
     <main>
       <div class="container">
-        <img src="{{ site.baseurl }}/assets/img/grunge.png" alt="" class="line">
+        <img src="/assets/img/grunge.png" alt="" class="line">
         <p class="center">[&nbsp;N<sup>o</sup>{% for post in site.posts %}
               {% if post.title == page.title %}
               {{ forloop.index | roman }}
               {% endif %}
               {% endfor %}&nbsp;]
         <span>&nbsp;{{ page.keywords }}</span></p>
-        <img src="{{ site.baseurl }}/assets/img/grunge.png" alt="" class="line flip">
+        <img src="/assets/img/grunge.png" alt="" class="line flip">
 
         <h2 class="brand center" id="title">{{ page.title | upcase }}</h2>
         {% if page.abstract %}<h5 class="center">{{ page.abstract }}</h5>{% endif %}
         {% if page.category %}
-        <img src="{{ site.baseurl }}/assets/img/grunge.png" alt="" class="line tag flip">
+        <img src="/assets/img/grunge.png" alt="" class="line tag flip">
         <p class="right tagline">{{ page.category }}</p>
-        <img src="{{ site.baseurl }}/assets/img/grunge.png" alt="" class="line tag">
+        <img src="/assets/img/grunge.png" alt="" class="line tag">
         {% endif %}
         <br>
         <h4 class="center space">{{ site.location | upcase }}</h4>
