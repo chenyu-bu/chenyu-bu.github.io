@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: "Chenyu Bu"         
-email: bu.chenyu@utexas.edu 
+email: bu.chenyu@utexas.edu
 description: |
   Hi, I’m Chenyu Bu—a philosopher by training, a musician in spirit, and a structuralist at heart. Thanks for stopping by.
 
@@ -30,9 +30,11 @@ tagline: |
   If anything here sparks your interest, feel free to reach me at  
   chenyubu988 [at] gmail [dot] com
 
-author: Chenyu Bu
+author: "Chenyu Bu"
 baseurl: "/buchenyu.github.io"
-url: "https://chenyu988.github.io"
+url: "https://chenyu988.github.io/buchenyu.github.io"
+github_username: Chenyu988
+
 google_analytics:
 
 lang: en
@@ -45,9 +47,10 @@ exclude:
 
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
   - jekyll-seo-tag
-plugins_dir:
   - jekyll-roman
-  - jekyll-seo-tag
+
+
+
