@@ -51,6 +51,8 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-roman
+  - jekyll-sitemap
+
 
 
 
