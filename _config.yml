@@ -1,0 +1,53 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: "Chenyu Bu"         
+email: bu.chenyu@utexas.edu 
+description: |
+  Hi, I’m Chenyu Bu—a philosopher by training, a musician in spirit, and a structuralist at heart. Thanks for stopping by.
+
+  I’m currently a doctoral candidate in philosophy at the University of Texas at Austin, working primarily under the supervision of Kathleen Higgins, Jon Litland, and Robbie Kubala. My research lies at the intersection of metaphysics and aesthetics (esp. the philosophy of music), informed by mathematics and music theory. My dissertation centers on the idea that musical and mathematical objects share structural and metaphysical affinities, the understanding of which can shed light on the nature of abstract entities as well as their role in our philosophical inquiry.
+
+  Before coming to Austin, I graduated with honors from the University of Wisconsin–Madison, where I triple-majored in philosophy, music composition, and mathematics. Before that, I grew up in Beijing, China.
+
+  Though most of my days are spent with arguments and abstractions, I remain a (somewhat laid-back) composer and cellist. I'm also an occasional dancer.
+
+  Look around to learn more about my work (and non-work).
+
+tagline: |
+  If anything here sparks your interest, feel free to reach me at  
+  chenyubu988 [at] gmail [dot] com
+
+author: Chenyu Bu
+baseurl: ""
+url: "https://chenyubu.github.io"
+google_analytics:
+
+lang: en
+
+# Build settings
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+  - jekyll-seo-tag
+plugins_dir:
+  - jekyll-roman
+  - jekyll-seo-tag
