@@ -1,6 +1,8 @@
----
-permalink: /sitemap.xml
-layout: none
----
-
-<meta http-equiv="refresh" content="0; url=/assets/sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://chenyu-bu.github.io/</loc></url>
+  <url><loc>https://chenyu-bu.github.io/about/</loc></url>
+  <url><loc>https://chenyu-bu.github.io/research/</loc></url>
+  <url><loc>https://chenyu-bu.github.io/teaching/</loc></url>
+  <url><loc>https://chenyu-bu.github.io/bits/</loc></url>
+</urlset>
