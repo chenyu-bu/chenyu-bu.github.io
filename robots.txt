@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chenyu-bu.github.io/sitemap.xml
+Sitemap: https://chenyu-bu.github.io/sitemap-main.xml
