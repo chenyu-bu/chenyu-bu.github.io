@@ -15,25 +15,22 @@
       <div style="margin-top: 25px;"></div>
       {{ content }}
 
-{% if page.url == "/" %}
-  <h1 class="brand title center" id="type">About Me</h1>
-  <div class="about-text center" style="font-size: 1.2em;">
-    {{ content }}
-  </div>
-  <img src="/assets/img/grunge.png" alt="" class="line tag flip">
-  <p class="right tagline">{{ site.tagline | newline_to_br }}</p>
-  <img src="/assets/img/grunge.png" alt="" class="line tag">
-  <div class="center">
-    <br>
-    <h4 class="space">{{ site.location | upcase }}</h4>
-    {% if site.date == true %}
-      <h5>{{ site.time | date_to_long_string | upcase }}</h5>
-    {% endif %}
-    <br>
-  </div>
-  {% include articles.html %}
-{% endif %}
-
+      {% if page.url == "/" %}
+        <h1 class="brand title center" id="type">About Me</h1>
+        <h5 class="center">{{ site.description | markdownify }}</h5>
+        <img src="/assets/img/grunge.png" alt="" class="line tag flip">
+        <p class="right tagline">{{ site.tagline | newline_to_br }}</p>
+        <img src="/assets/img/grunge.png" alt="" class="line tag">
+        <div class="center">
+          <br>
+          <h4 class="space">{{ site.location | upcase }}</h4>
+          {% if site.date == true %}
+            <h5>{{ site.time | date_to_long_string | upcase }}</h5>
+          {% endif %}
+          <br>
+        </div>
+        {% include articles.html %}
+      {% endif %}
     </div>
     {% include foot.html %}
   </body>
