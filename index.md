@@ -10,7 +10,7 @@ title: "Chenyu Bu"
 </h1>
 
 
-<div style="text-align: center; font-family: 'cochin', serif; font-size: 1.2em; max-width: 700px; margin: 0 auto;">
+<div style="text-align: center; font-size: 1.2em; max-width: 700px; margin: 0 auto;">
   Hi, I’m Chenyu Bu—a philosopher by training, a musician in spirit, and a structuralist at heart. Thanks for stopping by.
   <br><br>
   I’m currently a doctoral candidate in philosophy at the <a href="https://www.utexas.edu/" target="_blank">University of Texas at Austin</a>, working primarily under the supervision of 
