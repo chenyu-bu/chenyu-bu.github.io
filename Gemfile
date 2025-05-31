@@ -21,8 +21,6 @@ gem "minima", "~> 2.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed"
-  gem "jekyll-seo-tag"
-  gem "jekyll-roman"
   gem "jekyll-sitemap"
 end
 
@@ -33,3 +31,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "kramdown", "~> 2.4"
 gem "rexml"
+gem "liquid", "~> 4.0.4"
+

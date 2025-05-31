@@ -1,0 +1,16 @@
+current directory: /Users/chenyubu/Documents/GitHub/chenyu-bu.github.io/gems/eventmachine-1.2.7/ext/fastfilereader
+/Users/chenyubu/.rbenv/versions/3.1.2/bin/ruby -I /Users/chenyubu/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20250530-81415-4om0y7.rb extconf.rb
+creating Makefile
+
+current directory: /Users/chenyubu/Documents/GitHub/chenyu-bu.github.io/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= clean
+
+current directory: /Users/chenyubu/Documents/GitHub/chenyu-bu.github.io/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\=
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+
+current directory: /Users/chenyubu/Documents/GitHub/chenyu-bu.github.io/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= install
+/opt/homebrew/bin/ginstall -c -m 0755 fastfilereaderext.bundle ./.gem.20250530-81415-xuosio
