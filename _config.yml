@@ -1,59 +1,76 @@
-# Welcome to Jekyll!
+# Site settings for chenyu-bu.github.io
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Built by GitHub Pages. To preview locally on the same toolchain:
+#     bundle install && bundle exec jekyll serve
+# This file is NOT reloaded automatically — restart the server after editing.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: "Chenyu Bu"         
+title: "Chenyu Bu"
+author: "Chenyu Bu"
 email: bu.chenyu@utexas.edu
-description: |
+url: "https://chenyu-bu.github.io"
+baseurl: ""
+lang: en
+
+# --- Search-engine and link-preview metadata (jekyll-seo-tag reads these) ---
+#
+# There is deliberately no `tagline` key: when one is set, jekyll-seo-tag
+# builds the browser tab title as "Chenyu Bu | <tagline>". Without it the tab
+# reads just "Chenyu Bu".
+
+# `description` becomes the og:description used in link previews and search
+# results. Google truncates near 155 characters. Drafted from the About text
+# below — edit freely.
+description: "Chenyu Bu is a philosopher of music and metaphysics at UT Austin, writing a dissertation on objects, structures, and abstraction."
+
+# Shown when the site is linked on social media or in chat apps.
+# jekyll-seo-tag reads `image` per page, not site-wide, so it is applied to
+# every page through `defaults` below rather than set as a top-level key.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-preview.jpg
+
+# --- Home page content (read by _layouts/default.html) ---
+about: |
   Hi, I’m Chenyu Bu—a philosopher by training, a musician in spirit, and a structuralist at heart. Thanks for stopping by.
 
-  I’m currently a doctoral candidate in philosophy at the [University of Texas at Austin](https://liberalarts.utexas.edu/philosophy/gradstudents/cb53492), working primarily under the supervision of [Kathleen Higgins](https://liberalarts.utexas.edu/philosophy/faculty/khiggins), [Jon Litland](https://www.jonlitland.net/), and [Robbie Kubala](https://robbiekubala.com/). My research lies at the intersection of metaphysics and aesthetics—especially the philosophy of music—and is informed by mathematics and music theory. My dissertation research is a bidirectional project connecting music and metaphysics, where music is framed as a particularly revealing vantage point for addressing metaphysical questions about abstract objects and structures. You can find more about my academic projects and interests under [Research](https://chenyu-bu.github.io/research/) and in [my CV](https://chenyu-bu.github.io/assets/files/Chenyu_Bu_CV.pdf).
+  I’m a doctoral candidate in philosophy at the [University of Texas at Austin](https://liberalarts.utexas.edu/philosophy/gradstudents/cb53492), finishing a dissertation called *Objects, Structures, and Abstraction* under [Kathleen Higgins](https://liberalarts.utexas.edu/philosophy/faculty/khiggins) and [Jon Litland](https://www.jonlitland.net/), with [Robbie Kubala](https://robbiekubala.com/), Josh Dever, and James Buhler. I expect to defend in 2027.
 
-  Before coming to Austin, I graduated with honors from the [University of Wisconsin–Madison](https://honors.ls.wisc.edu/staff/bu-chenyu/), where I triple-majored in philosophy, music composition, and mathematics. Before that, I grew up in Beijing, China.
+  I work in metaphysics and aesthetics, with formal methods drawn from higher-order logic, category theory, and the mathematics music theory has built for itself. Two questions organize most of what I do: when does an operation genuinely introduce something new into the world rather than rearrange what was already there, and what fixes the identity of what it introduces? Music is where I find those questions most tractable, since its objects are precise enough to formalize and audible enough to check. The dissertation runs in both directions—from metaphysics into the ontology of music, and from music back out into abstract objects and structures generally.
 
-  When I'm not (entirely) a philosopher, I remain a (somewhat laid-back) [composer](https://chenyu-bu.github.io/bits/).
+  Lately the same questions have been pulling me outward. I’ve been working with network scientists, cognitive scientists, a complexity scientist, and a pianist on when a new form opens the space of possible forms and when it closes it, on how a teacher passes on a skill she cannot put into words, on what makes the causal structure of a living system distinctive, and on what a performer is really doing when she interprets a score. The fields differ; the question I keep bringing to them doesn’t. I want to know what a structural description captures, and what it leaves out.
+
+  There’s more under [Research](/research/), [Teaching](/teaching/), and [News](/news/), and the full record is in [my CV](/assets/files/Chenyu_Bu_CV.pdf).
+
+  Before Austin I graduated with honors from the University of Wisconsin–Madison, where I triple-majored in philosophy, music composition, and mathematics. Before that, I grew up in Beijing, China. I still [compose](/bits/), if less often than I’d like.
 
   Look around to learn more about my work (and non-work).
 
-
-tagline: |
+contact_line: |
   If anything here sparks your interest, feel free to reach me at  
   bu [dot] chenyu [at] utexas [dot] edu
 
-author: "Chenyu Bu"
-url: "https://chenyu-bu.github.io"
-baseurl: ""
+# --- Build settings ---
+markdown: kramdown
+encoding: utf-8
 
+# All layouts and CSS in this repo are hand-written, so no gem theme is used.
+# This must be an explicit `null`: if the key is absent, GitHub Pages falls
+# back to jekyll-theme-primer and starts building that theme's stylesheet.
+# jekyll-seo-tag is listed below because it used to arrive only as a
+# dependency of the minima theme that this replaces.
+theme: null
 
-github_username: Chenyu988
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
-google_analytics:
-
-lang: en
-
-# Build settings
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
-
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-
-
-
-
+  - vendor
+  - bin
+  - extensions
+  - specifications

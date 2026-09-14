@@ -3,7 +3,18 @@
 <meta http-equiv="content-language" content="{{ site.lang }}">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/skeleton.css">
+{% comment %}
+  The title is written here rather than left to jekyll-seo-tag, which falls
+  back to site.description when no site.tagline is set and would put the whole
+  description in the browser tab. `title=false` suppresses its own <title> so
+  there is exactly one per page.
+{% endcomment %}
+<title>{% if page.title and page.url != "/" %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+{% seo title=false %}
+
+<!-- Load order matters: resets first, custom styles last, so style.css wins.
+     The ?v= stamp changes on every build so a returning visitor is never left
+     on a cached copy of an older stylesheet. -->
 <link rel="stylesheet" href="/assets/css/normalize.css">
-{% include ga.html %}
+<link rel="stylesheet" href="/assets/css/skeleton.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">

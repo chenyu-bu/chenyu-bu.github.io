@@ -67,7 +67,7 @@
 }
 @font-face {
   font-family: 'Cochin';
-  src: url('/assets/fonts/Cochin%20Regular%20Italic.otf') format('opentype');
+  src: url('/assets/fonts/Cochin%20Italic.otf') format('opentype');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -89,15 +89,31 @@ body{
   padding-top: 10px;
   font-family: 'Cochin', serif;
   background-color: #F2F7F9;
- background-attachment: fixed;
+}
+
+/* The background is painted by a fixed pseudo-element rather than by
+   `background-attachment: fixed` on body, which iOS Safari does not honour.
+   Letting the background scroll with the page instead (the eventual design
+   goal) needs an image with much more vertical extent: canvas.jpg is
+   4768x6936, which at page width covers only about 1160px of a 2900px page,
+   leaving the rest flat colour. Revisit when the replacement image exists. */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #F2F7F9;
+  background-image: url("/assets/img/canvas.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/assets/img/canvas.jpg");
 }
 
 body::selection{
-  background: #fff2a8;
+  background: #c6d3dc;
 }
 
 p::selection{
@@ -199,58 +215,6 @@ font-size: 1.05em;
   gap: 1em;
 }
 
-.abstract-toggle summary {
-  cursor: pointer;
-  font-family: 'Cochin', serif;
-  font-size: 1em;
-  color: #333;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3em;
-  list-style: none;
-}
-
-.paper-abstract {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-
-.paper-abstract.show {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.abstract-toggle-trigger {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.5em;
-  font-family: 'Cochin', serif;
-}
-
-.arrow {
-  display: inline-block;
-  transition: transform 0.2s ease;
-  margin-right: 0.2em;
-}
-
-.arrow.rotated {
-  transform: rotate(90deg);
-}
-
-
-.abstract-label {
-  border-bottom: 1px dotted #666;
-  padding-bottom: 0px;
-  cursor: pointer;
-  transition: border-bottom 0.2s ease;
-}
-
-.abstract-label:hover {
-  border-bottom: 1px solid #333;
-}
 
 
 .line{
@@ -333,11 +297,17 @@ hr.simple {
   -moz-hyphens: auto;
 }
 
-#navlist li
-{
-display: inline;
-list-style-type: none;
-padding-right: 20px;
+#navlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  padding-left: 0;
+  margin-bottom: 2.2em;
+}
+
+#navlist li {
+  list-style-type: none;
+  margin-bottom: 0;
 }
 
 @media only screen
@@ -357,15 +327,24 @@ and (min-device-width : 768px)  {
   }
 }
 
+.tiles {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
 .tile {
+  flex: 1 1 180px;
   text-decoration: none;
   color: inherit;
 }
 
 .tile h2 {
   font-family: 'Silian Rail Sharp personal', serif;
-  font-size: 1.8em; 
-  margin-bottom: 0.8em;
+  font-size: 1.32em;
+  margin-bottom: 0.7em;
 }
 
 .tile p {
@@ -379,3 +358,357 @@ and (min-device-width : 768px)  {
 }
 
 
+
+
+/* ==========================================================================
+   Page furniture
+   (was duplicated inline in research.html / teaching.html / bits.html)
+   ========================================================================== */
+
+.main-title {
+  text-align: center;
+  font-family: 'Silian Rail Sharp personal', serif;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.section {
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.section > p {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.nav-footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 1.1em;
+}
+
+.nav-footer a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Home-page About block. Was an <h5> fed through markdownify, which put <p>
+   elements inside a heading and collapsed every paragraph break. */
+.home-about {
+  font-size: 1.1em;
+  max-width: 760px;
+  margin: 0 auto 2.6em;
+}
+
+/* "About Me" sits closer to the portrait than it should. */
+.home #type {
+  margin-top: 1.7em;
+}
+
+.home-about p {
+  line-height: 1.6;
+  margin-bottom: 1.1em;
+}
+
+/* ==========================================================================
+   Research themes
+   ========================================================================== */
+
+.theme {
+  max-width: 800px;
+  margin: 0 auto 3em auto;
+}
+
+.theme-numeral {
+  display: block;
+  text-align: center;
+  font-family: 'Silian Rail Sharp personal', serif;
+  font-size: 0.8em;
+  letter-spacing: 0.38em;
+  text-indent: 0.38em;
+  color: #8f8f8f;
+  margin-bottom: 0.3em;
+}
+
+.theme-title {
+  font-family: 'Augustine', serif;
+  font-size: 1.75em;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  text-align: center;
+  margin-bottom: 0.55em;
+}
+
+/* A hairline that fades out at both ends — quieter than the grunge rules
+   used for the page-level banners, so the hierarchy still reads. */
+.theme-rule {
+  width: 96px;
+  height: 1px;
+  margin: 0 auto 1.6em;
+  background: linear-gradient(to right, transparent, rgba(47, 47, 47, 0.45), transparent);
+}
+
+/* Sections that open directly under a banner need air above their first line. */
+/* The gap under a section banner, matched to the Bits & Pieces page. */
+.theme.after-banner,
+.section.after-banner {
+  margin-top: 1em;
+}
+
+/* A short italic note directly under a banner; the section already supplies
+   the gap above it. */
+.page-note {
+  font-family: 'Cochin', serif;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  color: grey;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+}
+
+.after-banner > .paper-title:first-child {
+  margin-top: 0;
+}
+
+.theme-blurb,
+.news-lead {
+  color: #9a9a9a;
+  font-style: italic;
+  border-left: 2px dotted #c2c2c2;
+  padding-left: 0.9em;
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 1.7em;
+}
+
+.subhead {
+  font-family: 'Cochin', serif;
+  font-size: 0.85em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  margin: 2em 0 0.9em;
+  border-bottom: 1px solid rgba(47, 47, 47, 0.15);
+  padding-bottom: 0.3em;
+}
+
+/* ==========================================================================
+   Entries and expandable panels
+   ========================================================================== */
+
+.entry {
+  margin-bottom: 1.5em;
+}
+
+.entry .paper-title {
+  margin-bottom: 0.2em;
+}
+
+.journal-ref {
+  font-family: 'Cochin', serif;
+  font-size: 1.02em;
+  line-height: 1.55;
+  color: #333;
+  margin-bottom: 0.2em;
+}
+
+/* The course title sits directly above its toggles; a hair of air, no more. */
+.course-head {
+  margin-bottom: 0.5em;
+}
+
+.status {
+  font-size: 0.8em;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  border: 1px solid rgba(47, 47, 47, 0.22);
+  border-radius: 2px;
+  padding: 0.1em 0.45em;
+  margin-right: 0.15em;
+  white-space: nowrap;
+}
+
+/* Reset skeleton's heavy <button> styling: these read as links, not buttons.
+   They are <button> elements so that they are keyboard-operable. */
+.toggle {
+  display: inline;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px dotted #666;
+  border-radius: 0;
+  font-family: 'Cochin', serif;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: normal;
+  color: #333;
+  cursor: pointer;
+}
+
+.toggle:hover,
+.toggle:focus {
+  color: #000;
+  border-bottom: 1px solid #333;
+}
+
+/* skeleton sets `outline: 0` on button:focus, which leaves keyboard users with
+   no visible focus target. Put one back. */
+.toggle:focus-visible {
+  outline: 2px solid rgba(47, 47, 47, 0.55);
+  outline-offset: 3px;
+}
+
+.toggle::before {
+  content: "\25B6";
+  display: inline-block;
+  margin-right: 0.3em;
+  font-size: 0.72em;
+  vertical-align: 0.1em;
+  transition: transform 0.2s ease;
+}
+
+.toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+/* Show less collapses upward, so the arrow should point up, not down. */
+.news-more[aria-expanded="true"]::before {
+  transform: rotate(-90deg);
+}
+
+/* The panel opens to a max-height measured from its own content, and the cap
+   is released once the transition finishes, so nothing can be clipped by a
+   later reflow (webfont swap, rotation, resize). The old fixed
+   `max-height: 500px` truncated longer abstracts silently. */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+.panel.open {
+  opacity: 1;
+}
+
+.panel-box {
+  margin: 0.6em 0 0.2em;
+  padding: 0.9em 1.1em;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(47, 47, 47, 0.16);
+  border-radius: 2px;
+}
+
+.panel-box .paper-description {
+  margin: 0;
+  text-align: justify;
+}
+
+.panel-box .paper-description + .paper-description {
+  margin-top: 0.95em;
+}
+
+.bibtex {
+  margin: 0.7em 0 0.2em;
+  padding: 0.9em 1.1em;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(47, 47, 47, 0.16);
+  border-left: 3px solid rgba(47, 47, 47, 0.38);
+  border-radius: 2px;
+  overflow-x: auto;
+  font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.8em;
+  line-height: 1.55;
+  color: #2f2f2f;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 2;
+}
+
+@media only screen and (max-width: 550px) {
+  .theme,
+  .section {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .bibtex {
+    font-size: 0.72em;
+  }
+}
+
+
+/* ==========================================================================
+   Comings & Goings — one chronological list, newest first
+   ========================================================================== */
+
+.news-list {
+  max-width: 800px;
+  margin: 0 auto 3em;
+}
+
+.news-item {
+  margin-bottom: 1.45em;
+}
+
+.news-body {
+  font-family: 'Cochin', serif;
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 0.1em;
+  text-align: justify;
+}
+
+/* Long entries are clamped to two lines until asked to open. The class is
+   added by JS, so with scripting off every entry simply shows in full. */
+.news-body.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+}
+
+.news-date {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.news-more {
+  font-size: 0.92em;
+  color: #6b6b6b;
+}
+
+.news-lead {
+  max-width: 800px;
+  margin: 0 auto 1.3em;
+  font-family: 'Cochin', serif;
+  font-size: 1.05em;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 550px) {
+  .news-body,
+  .news-lead {
+    text-align: left;
+  }
+}

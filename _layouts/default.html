@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang }}">
   <head>
-<meta name="google-site-verification" content="googleeab91a6f10d5afb4.html" />
-    <title>{{ site.title }}</title>
     {% include header.html %}
-    {% seo %}
   </head>
   <body class="{% if page.url == '/' %}home{% endif %}">
     {% include nav.html %}
@@ -16,20 +13,14 @@
       {{ content }}
 
       {% if page.url == "/" %}
-    <img src="/assets/img/profile.jpg" alt="Chenyu Bu" style="max-width: 320px; border-radius: 8px; display: block; margin: auto;"/>
+        <img src="/assets/img/profile-640.jpg" alt="Chenyu Bu" width="457" height="640"
+             style="max-width: 320px; height: auto; border-radius: 8px; display: block; margin: auto;">
         <h1 class="brand title center" id="type">About Me</h1>
-        <h5 class="center">{{ site.description | markdownify }}</h5>
+        <div class="center home-about">{{ site.about | markdownify }}</div>
         <img src="/assets/img/grunge.png" alt="" class="line tag flip">
-        <p class="right tagline">{{ site.tagline | newline_to_br }}</p>
+        <p class="right tagline">{{ site.contact_line | newline_to_br }}</p>
         <img src="/assets/img/grunge.png" alt="" class="line tag">
-        <div class="center">
-          <br>
-          <h4 class="space">{{ site.location | upcase }}</h4>
-          {% if site.date == true %}
-            <h5>{{ site.time | date_to_long_string | upcase }}</h5>
-          {% endif %}
-          <br>
-        </div>
+        <br>
         {% include articles.html %}
       {% endif %}
     </div>
