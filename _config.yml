@@ -17,10 +17,11 @@ lang: en
 # builds the browser tab title as "Chenyu Bu | <tagline>". Without it the tab
 # reads just "Chenyu Bu".
 
-# `description` becomes the og:description used in link previews and search
-# results. Google truncates near 155 characters. Drafted from the About text
-# below — edit freely.
-description: "Chenyu Bu is a philosopher of music and metaphysics at UT Austin, writing a dissertation on objects, structures, and abstraction."
+# `description` is the home page's search snippet and link preview, and the
+# fallback for any page that does not set its own. Each of the other pages
+# sets a `description:` in its own .md file so they do not all share this one.
+# Google truncates near 155 characters.
+description: "Chenyu Bu is a PhD candidate in Philosophy at UT Austin, working at the intersection of metaphysics, philosophy of music, and aesthetics, currently finishing a dissertation on objects, structures, and abstraction."
 
 # Shown when the site is linked on social media or in chat apps.
 # jekyll-seo-tag reads `image` per page, not site-wide, so it is applied to
@@ -43,7 +44,7 @@ about: |
 
   There’s more under [Research](/research/), [Teaching](/teaching/), and [News](/news/), and the full record is in [my CV](/assets/files/Chenyu_Bu_CV.pdf).
 
-  Before Austin I graduated with honors from the University of Wisconsin–Madison, where I triple-majored in philosophy, music composition, and mathematics. Before that, I grew up in Beijing, China. I still [compose](/bits/), if less often than I’d like.
+  Before Austin I graduated with honors from the University of Wisconsin–Madison, where I triple-majored in philosophy, music composition, and mathematics. Before that, I grew up in Beijing, China. And, when I'm not (directly) working on philosophy, I [compose](/bits/), if less often than I’d like.
 
   Look around to learn more about my work (and non-work).
 
