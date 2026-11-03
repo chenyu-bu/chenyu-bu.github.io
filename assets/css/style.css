@@ -82,34 +82,90 @@
 
 
 
+/* ==========================================================================
+   Paper and scene
+   The paper grain is on <html>, so it also shows if a browser bounces past
+   the end of the page. The ink-wash lake (#scene) is built by
+   assets/js/scene.js and sits behind everything at z-index -1; for that to
+   show, <body> must stay transparent.
+   ========================================================================== */
+
+html {
+  background-color: #edefec;
+  background-image: url("/assets/img/scene/paper.jpg");
+  background-size: 512px 512px;
+  background-blend-mode: multiply;
+  overscroll-behavior: none;   /* no rubber-band bounce tearing the text from the scene */
+}
+
 body{
   min-height: 100%;
   text-decoration-skip: ink;
   color: #2f2f2f;
   padding-top: 10px;
   font-family: 'Cochin', serif;
-  background-color: #F2F7F9;
+  background: transparent;
+  overscroll-behavior: none;
 }
 
-/* The background is painted by a fixed pseudo-element rather than by
-   `background-attachment: fixed` on body, which iOS Safari does not honour.
-   Letting the background scroll with the page instead (the eventual design
-   goal) needs an image with much more vertical extent: canvas.jpg is
-   4768x6936, which at page width covers only about 1160px of a 2900px page,
-   leaving the rest flat colour. Revisit when the replacement image exists. */
-body::before {
-  content: "";
+#scene {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: -1;
-  background-color: #F2F7F9;
-  background-image: url("/assets/img/canvas.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#scene canvas,
+#scene img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#scene canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#scene img.fallback {
+  display: none;
+  max-width: none;
+  mix-blend-mode: multiply;
+  filter: grayscale(1);
+  transform-origin: 0 0;
+}
+
+.no-gl #scene img.fallback {
+  display: block;
+}
+
+/* Mist behind the reading column: a band down the middle of the screen,
+   feathered at both sides, so text never sits directly on dark ink. */
+.scene-veil {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: min(100vw, 1080px);
+  transform: translateX(-50%);
+  background: linear-gradient(to right, transparent, rgba(237, 239, 236, 0.74) 120px,
+              rgba(237, 239, 236, 0.74) calc(100% - 120px), transparent);
+}
+
+@media only screen and (max-width: 700px) {
+  .scene-veil {
+    width: 100vw;
+    background: linear-gradient(to right, rgba(237, 239, 236, 0.5), rgba(237, 239, 236, 0.78) 16px,
+                rgba(237, 239, 236, 0.78) calc(100% - 16px), rgba(237, 239, 236, 0.5));
+  }
+}
+
+/* The brush-stroke rules and the score excerpts sit in the paper rather
+   than on it. */
+img.line,
+img[src$="-preview.png"] {
+  mix-blend-mode: multiply;
 }
 
 body::selection{
@@ -611,7 +667,7 @@ and (min-device-width : 768px)  {
 .panel-box {
   margin: 0.6em 0 0.2em;
   padding: 0.9em 1.1em;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(244, 245, 242, 0.62);
   border: 1px solid rgba(47, 47, 47, 0.16);
   border-radius: 2px;
 }
@@ -628,7 +684,7 @@ and (min-device-width : 768px)  {
 .bibtex {
   margin: 0.7em 0 0.2em;
   padding: 0.9em 1.1em;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(244, 245, 242, 0.62);
   border: 1px solid rgba(47, 47, 47, 0.16);
   border-left: 3px solid rgba(47, 47, 47, 0.38);
   border-radius: 2px;
@@ -711,4 +767,152 @@ and (min-device-width : 768px)  {
   .news-lead {
     text-align: left;
   }
+}
+
+
+/* ==========================================================================
+   Inklings (Comings & Goings): see assets/js/inklings.js
+   ========================================================================== */
+
+/* With scripting on, the source figures are hidden and printed on demand;
+   without it they show under their entry. */
+.has-inklings figure.inkling-source {
+  display: none;
+}
+
+figure.inkling-source {
+  max-width: 320px;
+  margin: 0.6em 0 1em;
+}
+
+figure.inkling-source img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure.inkling-source figcaption,
+.inkling figcaption {
+  font-style: italic;
+  font-size: 0.86em;
+  line-height: 1.45;
+  color: #5d6469;
+}
+
+/* A phrase that opens an inkling: a faint wash behind it and a small dot. */
+a.inkling-trigger {
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(transparent 56%, rgba(42, 47, 53, 0.11) 56%, rgba(42, 47, 53, 0.11) 92%, transparent 92%);
+  padding: 0 0.08em;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+a.inkling-trigger::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(38, 41, 44, 0.5);
+  vertical-align: 0.55em;
+  margin-left: 3px;
+}
+
+a.inkling-trigger:hover,
+a.inkling-trigger[aria-expanded="true"] {
+  background-color: rgba(42, 47, 53, 0.07);
+}
+
+a.inkling-trigger:focus-visible {
+  outline: 2px solid rgba(38, 41, 44, 0.5);
+  outline-offset: 2px;
+}
+
+.inkling {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 0.7s ease, filter 0.7s ease;
+}
+
+/* The margin is also where the islet and reeds are, so each print gets a
+   feathered patch of clear paper under it. */
+.inkling::before {
+  content: "";
+  position: absolute;
+  inset: -34px -30px -46px;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(237, 239, 236, 0.95) 62%, rgba(237, 239, 236, 0) 100%);
+}
+
+.inkling.leaving {
+  opacity: 0;
+  filter: blur(1.2px);
+}
+
+.inkling canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.inkling figcaption {
+  margin-top: 0.5em;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.7s;
+}
+
+.inkling.shown figcaption {
+  opacity: 1;
+}
+
+.inkling .close {
+  display: none;
+}
+
+.inkling.overlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(82vw, 380px);
+}
+
+.inkling.overlay .close {
+  display: block;
+  position: absolute;
+  right: -6px;
+  top: -36px;
+  height: auto;
+  padding: 2px 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px dotted #5d6469;
+  border-radius: 0;
+  font-family: 'Cochin', serif;
+  font-size: 0.95em;
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: 1.3;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+.inkling-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse at center, rgba(237, 239, 236, 0.99) 45%, rgba(237, 239, 236, 0.93) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.inkling-veil.shown {
+  opacity: 1;
 }

@@ -1,0 +1,197 @@
+# Comings & Goings, newest first. _layouts/news.html renders this list.
+#
+# Each entry has a date and a text. The text is Markdown on indented lines
+# (they are joined into one paragraph): *italics*, [a link](https://...).
+# Links to other sites, and to files such as the CV, open in a new tab.
+#
+# To add an inkling (an image that prints into the margin when a phrase is
+# clicked):
+#   1. put the image in assets/img/inklings/ (about 1200 px on the long side);
+#   2. in the text, make the phrase a link to #inkling- plus a short key,
+#      e.g. [Cone Collection](#inkling-cone);
+#   3. list the image under the entry:
+#
+#   inklings:
+#     - key: cone
+#       image: cone-collection.jpg
+#       alt: "What the image shows, for screen readers"
+#       caption: "A short caption, with a credit if needed"
+#
+# An entry can have several inklings. Light areas of an image print as bare
+# paper and dark areas as ink, so photographs with clear light and shade
+# work best.
+
+- date: "September 2026"
+  text: >-
+    I am on the job market this year, with a defense planned for Spring 2027. [The
+    CV](/assets/files/Chenyu_Bu_CV.pdf) has the full record; drafts of dissertation chapters are
+    available for the asking.
+
+- date: "June–July 2026"
+  text: >-
+    I was a fellow at the 2026 edition of the [Diverse Intelligences Summer
+    Institute](https://disi.org/), held in Geneva, NY — three weeks with an amazing group of
+    researchers from dozens of disciplines and backgrounds, all in the same place and exploring
+    intelligence from every angle. I came as a philosopher, hoping to find out whether my
+    framework and its formalisms are genuinely useful to people studying real minds or only tidy
+    on paper, and I left with collaborations that put the formal and empirical sides in contact
+    concretely enough that I could name the mechanism. Two of them are still running (see more
+    under [Research](/research/), “Structure Where Formalization Runs Out”). This experience
+    turned out to be more influential on my research and thinking than I had expected, and it
+    still felt surreal when I looked back months later.
+
+- date: "May 2026"
+  text: >-
+    Talk: “Yoneda Essence and Structural Identity,” at Defining the Formal Foundations of
+    Intelligences, held at Indiana University Bloomington’s [Center for Possible
+    Minds](https://www.possibleminds.org/). The workshop is part of an NSF-funded project on
+    collaboration across research into artificial and natural intelligences. Presenting the
+    Yoneda material to people approaching structure from formal, empirical, and computational
+    directions at once changed what I take the principle to be for. Several of the questions I
+    was asked there are now questions the project is about.
+
+- date: "April 2026"
+  text: >-
+    Talk: “How to Stop Worrying and Embrace Musical Platonism,” at the [APA Pacific
+    Meeting](https://www.apaonline.org/events/EventDetails.aspx?alias=2026Pacific), held online
+    this year.
+
+- date: "March 2026"
+  text: >-
+    I was awarded the [American Society for Aesthetics Dissertation
+    Fellowship](https://aesthetics-online.org/page/dissfellowships) for 2026–27, together with a
+    Dean’s Prestigious Supplement Fellowship from UT that made taking it up possible. The year
+    goes to finishing the dissertation, keeping the collaborations moving, and following the
+    questions that have collected at its edges. My thanks to the ASA and to the Dean’s office
+    for the room to do all of this.
+
+- date: "March 2026"
+  text: >-
+    Talk: “Generating Structures: An Essentialist Account,” at the 2026 [Henle
+    Conference](https://sites.google.com/slu.edu/henle/) on Essentialism in St. Louis, two days
+    on (essentially) essence and nothing else, which is a rare thing to get.
+
+- date: "March 2026"
+  text: >-
+    Talk: “How to Stop Worrying and Embrace Musical Platonism,” at the [ASA Pacific
+    Meeting](https://aesthetics-online.org/events/EventDetails.aspx?id=1882127&group=) in
+    Berkeley. Its first outing; the version I gave at the APA a month later was much improved by
+    what happened here.
+
+- date: "February 2026"
+  text: >-
+    Talk: “Beyond the Given: Toward a General Theory of Generativism,” at the [APA Central
+    Meeting](https://www.apaonline.org/events/EventDetails.aspx?alias=2026Central) in Chicago.
+    One of the most useful hours the paper has had.
+
+- date: "October 2025"
+  text: >-
+    Commentary on Andrew Kania’s “Justifying and Advancing the Explication of the Musical-Cover
+    Concept,” at the [ASA’s 83rd Annual
+    Meeting](https://aesthetics-online.org/events/EventDetails.aspx?id=1701810&group=) in
+    Baltimore. I spent a free morning at the [Baltimore Museum of Art](https://artbma.org/),
+    whose Cone Collection hangs Matisse returning to the same motifs across the better part of
+    his career. Standing in front of that, Kania’s question about the cover-concept stopped
+    looking like a question about music in particular. Whatever settles it, I doubt it is
+    something we read off the object.
+
+- date: "May 2025"
+  text: >-
+    Talk: “Toward a General Theory of Generativism,” at [Metaphysical Mayhem
+    2025](https://www.jonathanschaffer.org/mayhem.html), the week-long biennial metaphysics
+    workshop hosted by the Rutgers philosophy department, where the generativism project first
+    got a hearing in a room full of metaphysicians — a plurality as pure as ever.
+
+- date: "February 2025"
+  text: >-
+    I was awarded the [University Graduate Continuing
+    Fellowship](https://graduate.utexas.edu/funding/fellowships/grad-school/continuing) at UT
+    for 2025–26, and earlier a [Humanities Research
+    Award](https://liberalarts.utexas.edu/humanitiesinstitute/research/humanities-research-awards/past-awardees.html)
+    from the Humanities Institute. That was a clear and productive research year, and I am
+    grateful to both programs for making it possible.
+
+- date: "February 2025"
+  text: >-
+    At the [APA Central](https://www.apaonline.org/events/EventDetails.aspx?alias=2025Central),
+    held online: a talk, “Doing Away with Works: Let’s Talk About *Music*,” and a commentary on
+    Matthew Shields’s “The Impossibility of Conceptual Abandonment.”
+
+- date: "January 2025"
+  text: >-
+    Talk: “Abstract Object and Platonic Inheritance,” at the [APA Eastern
+    Meeting](https://www.apaonline.org/events/EventDetails.aspx?alias=2025Eastern) in New York.
+    The talk was in a work-in-progress session, and in retrospect it is the seed of everything
+    since. The generativism project grew out of questions that session put to me, and so did
+    most of what followed from it. Many thanks to everyone who was in that room.
+
+- date: "December 2024"
+  text: >-
+    I was awarded the [Billy Bob Draeger Graduate Research
+    Fellowship](https://liberalarts.utexas.edu/giving/donor-impact-recognition/endowments.html)
+    in the Humanities for 2024–25 — a year that produced the work now anchoring the
+    dissertation.
+
+- date: "May 2024"
+  text: >-
+    Talk: “Cohesion, Clarity, Closure: How Music Navigates the Wake of Tragedy,” with [Ellen
+    Sirower](https://www.ellensirower.com/esirowerbio), at the [Performance Philosophy Biennial
+    Conference](https://www.performancephilosophy.org/events/austin-2024/), which happened to be
+    in Austin that year. It was the first thing we did together and it started both a
+    collaboration and a friendship. We are still writing, with an ongoing conversation about
+    performance.
+
+- date: "April 2024"
+  text: >-
+    Talk: “Musical Formalism Reconsidered: A Category-Theoretic Approach,” at the [ASA Eastern
+    Meeting](https://aesthetics-online.org/events/EventDetails.aspx?id=1483655&group=) in
+    Philadelphia. The earliest version of what became the dissertation’s last chapter. It is
+    also where I finally met Kendall Walton, whose work I had been reading since my
+    undergraduate years and who turns out to be a cellist as well. He was generous about a paper
+    that was not yet very good.
+
+- date: "February 2024"
+  text: >-
+    Commentary on Minseok Kim’s “Way-Nominalism: An Ontological Ground for Non-Nominal
+    Quantification,” at the [APA Central
+    Meeting](https://www.apaonline.org/events/EventDetails.aspx?alias=2024Central) in New
+    Orleans — a city where I spent the evenings in jazz clubs, listening to music that is far
+    easier to describe as a way of playing than as any object there to be counted. It occurred
+    to me later that this was probably the [last APA meeting to be held
+    there](https://dailynous.com/2024/10/02/why-wont-the-apa-meet-in-new-orleans-or-many-other-us-cities/).
+    Philosophy will miss the company of that music — though, as Kim would be the first to point
+    out, that is not the only way of doing philosophy.
+
+- date: "November 2023"
+  text: >-
+    Talk: “Music as Meaningfulness Without Meaning: A Schopenhauerian Account,” at the IX.
+    International doctoral colloquium of the
+    [Schopenhauer-Forschungsstelle](https://www.philosophie.fb05.uni-mainz.de/fs_schopenhauer_aktuelles_archiv/)
+    at Johannes Gutenberg University Mainz, held online. A version of the paper appeared in the
+    *Journal of Comparative Literature and Aesthetics* that year.
+
+- date: "July 2023"
+  text: >-
+    Talk: “In Defense of a Real Musical Platonism,” at the [ASA Rocky Mountain
+    Meeting](https://aesthetics-online.org/events/EventDetails.aspx?id=1173363&group=) in Santa
+    Fe. The first talk I gave to a real audience, in both senses: in a room rather than on a
+    screen, and in front of philosophers rather than undergraduates. It was also where the
+    platonist view about music first went out in public, and I have been refining it since.
+
+- date: "July 2023"
+  text: >-
+    Talk: “An Inferentialist Account of *I*,” at the annual meeting of the [Society for
+    Philosophy in the Contemporary World](https://spcw.org/the-journal), in Fresno. A detour
+    into philosophy of language that I have not been back to since.
+
+- date: "September 2022"
+  text: >-
+    Talk: “Music as Meaningfulness Without Meaning: A Schopenhauerian Account,” at the UT Austin
+    Graduate Colloquia Series. Its first outing, in front of my own department.
+
+- date: "July 2020"
+  text: >-
+    Talk: “Sound, Silence, and Sartrean Nothingness,” at the Boston College
+    [*Dianoia*](https://www.dianoiabc.org/) symposium, held online. An invitation off the back
+    of an undergraduate paper, and the first talk I gave anywhere (and a high point of the
+    pandemic that had been going on for months).
