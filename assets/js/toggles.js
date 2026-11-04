@@ -1,6 +1,7 @@
 /* Two independent behaviours:
  *
  * 1. Expandable panels (abstracts, BibTeX, course descriptions, synopses).
+ *    Opening, the text spreads in like ink; closing, it fades back.
  *
  *      <div class="entry">
  *        <button class="toggle" data-panel="abstract" aria-expanded="false">…</button>
@@ -25,9 +26,41 @@
     return entry.querySelector('.toggle[data-panel="' + name + '"]');
   }
 
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // The text spreads in like ink from the top left corner (near the button)
+  // and comes into focus, by animating the --ink radii that the
+  // .panel-inner.inking mask in style.css reads.
+  function inkIn(inner) {
+    if (!inner || reduceMotion) return;
+    var maxR = Math.sqrt(inner.offsetWidth * inner.offsetWidth +
+                         inner.scrollHeight * inner.scrollHeight) + 140;
+    var t0 = null, dur = 1100;
+    inner.classList.add('inking');
+    inner.style.setProperty('--ink', '0px');
+    inner.style.setProperty('--ink2', '0px');
+    function step(now) {
+      if (t0 === null) t0 = now;
+      var k = Math.min(1, (now - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 2.4);
+      inner.style.setProperty('--ink', (e * maxR).toFixed(1) + 'px');
+      inner.style.setProperty('--ink2', (Math.max(0, e * 1.1 - 0.1) * maxR).toFixed(1) + 'px');
+      inner.style.filter = 'blur(' + (1.4 * (1 - e)).toFixed(2) + 'px)';
+      if (k < 1) {
+        requestAnimationFrame(step);
+      } else {
+        inner.classList.remove('inking');
+        inner.style.filter = '';
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
   function openPanel(panel, btn) {
     panel.style.maxHeight = panel.scrollHeight + 'px';
     panel.classList.add('open');
+    inkIn(panel.querySelector('.panel-inner'));
     if (btn) btn.setAttribute('aria-expanded', 'true');
   }
 
