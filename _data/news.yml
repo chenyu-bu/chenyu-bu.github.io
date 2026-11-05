@@ -32,25 +32,47 @@
 - date: "June–July 2026"
   text: >-
     I was a fellow at the 2026 edition of the [Diverse Intelligences Summer
-    Institute](https://disi.org/), held in Geneva, NY — three weeks with an amazing group of
-    researchers from dozens of disciplines and backgrounds, all in the same place and exploring
+    Institute](https://disi.org/), held in [Geneva, NY](#inkling-odells-pond) — three weeks with [an amazing group of
+    researchers](#inkling-geese) from dozens of disciplines and backgrounds, all in the same place and exploring
     intelligence from every angle. I came as a philosopher, hoping to find out whether my
     framework and its formalisms are genuinely useful to people studying real minds or only tidy
     on paper, and I left with collaborations that put the formal and empirical sides in contact
     concretely enough that I could name the mechanism. Two of them are still running (see more
     under [Research](/research/), “Structure Where Formalization Runs Out”). This experience
     turned out to be more influential on my research and thinking than I had expected, and it
-    still felt surreal when I looked back months later.
+    still felt [surreal](#inkling-salon) when I looked back months later.
+  inklings:
+    - key: odells-pond
+      image: disi_odells_pond_sunset.jpg
+      alt: "A pond at sunset, the orange and blue sky and the trees and houses on the far bank reflected in still water, with one bird flying overhead."
+      caption: "Sunset over Odell’s Pond, next to our dorm. Kant says that in calling something beautiful one judges not merely for oneself but for everyone. So here it is."
+      seed: "0.35,0.55"
+    - key: geese
+      image: disi_geese.jpg
+      alt: "Seven Canada geese walking along the grassy bank of a pond, between tall reeds and a willow, with the water behind them."
+      caption: "Our neighbors by the pond, who went from goslings to near-adults in the three weeks we were there. I hope some of us grew as much; if we did, much of the credit goes to the [faculty](https://disi.org/category/faculty/?_sft_category=disi-2026-faculty) who kept watch over us."
+      seed: "0.45,0.65"
+    - key: salon
+      image: disi_salon.jpg
+      alt: "An empty room with a long curved wall of windows onto trees and a lawn, a tall round table with three stools, and sunlight on the wooden floor."
+      caption: "The salon, where many of the conversations off the schedule happened, serious and otherwise. Taken on the last afternoon, after most people had left."
+      seed: "0.5,0.45"
 
 - date: "May 2026"
   text: >-
     Talk: “Yoneda Essence and Structural Identity,” at Defining the Formal Foundations of
     Intelligences, held at Indiana University Bloomington’s [Center for Possible
     Minds](https://www.possibleminds.org/). The workshop is part of an NSF-funded project on
-    collaboration across research into artificial and natural intelligences. Presenting the
+    collaboration across research into [artificial and natural intelligences](#inkling-hepworth). Presenting the
     Yoneda material to people approaching structure from formal, empirical, and computational
     directions at once changed what I take the principle to be for. Several of the questions I
     was asked there are now questions the project is about.
+  inklings:
+    - key: hepworth
+      image: hepworth_three_spheres.jpg
+      alt: "A white marble sculpture on a wooden plinth: a large hollowed sphere cradling a smaller sphere, with a third small sphere resting against it."
+      caption: "Barbara Hepworth, *Three Spheres (Family Group)*, 1972. Three ideal but unequal forms, carved by hand from veined marble, each shaped to rest against the others and to complete them. How much of the form was already in the stone?"
+      seed: "0.6,0.45"
 
 - date: "April 2026"
   text: >-
@@ -71,7 +93,13 @@
   text: >-
     Talk: “Generating Structures: An Essentialist Account,” at the 2026 [Henle
     Conference](https://sites.google.com/slu.edu/henle/) on Essentialism in St. Louis, two days
-    on (essentially) essence and nothing else, which is a rare thing to get.
+    on (essentially) essence and nothing else, which is [a rare thing to get](#inkling-st-louis-sunset).
+  inklings:
+    - key: st-louis-sunset
+      image: stlouis_tracks_sunset.jpg
+      alt: "Light-rail tracks curving away under overhead wires at sunset, with orange and pink clouds above bare trees and low buildings."
+      caption: "Sunsets are much less rare, even ones as fine as this. Nothing about this one was essential to the conference, but I count myself lucky to have caught it."
+      seed: "0.5,0.35"
 
 - date: "March 2026"
   text: >-
@@ -82,9 +110,15 @@
 
 - date: "February 2026"
   text: >-
-    Talk: “Beyond the Given: Toward a General Theory of Generativism,” at the [APA Central
+    Talk: “[Beyond the Given](#inkling-spirit-stones): Toward a General Theory of Generativism,” at the [APA Central
     Meeting](https://www.apaonline.org/events/EventDetails.aspx?alias=2026Central) in Chicago.
     One of the most useful hours the paper has had.
+  inklings:
+    - key: spirit-stones
+      image: field_museum_spirit_stones.jpg
+      alt: "A gallery with a dark wood floor and tall windows, where pale, deeply hollowed limestone rocks stand on raised beds of gravel behind low glass."
+      caption: "The Sue Ling Gin Garden at the Field Museum, Chicago. Eight ancient limestone formations from Suzhou, said to have been found, not carved. Does arranging them, displaying them in a museum, and calling them “spirit stones” make them something beyond what nature has given?"
+      seed: "0.5,0.5"
 
 - date: "October 2025"
   text: >-
