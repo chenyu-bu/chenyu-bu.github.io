@@ -8,6 +8,7 @@ whose names start with an underscore, so nothing here appears on the site.
 |---|---|
 | `mountains_islet.py` | `far.jpg` (sky, sun, mountains, horizon, reflections) and `mid.jpg` (the islet with its trees and pavilion) |
 | `paper_mist_reeds.py` | `paper.jpg` (paper grain), `mist.jpg` (drifting mist), `near.jpg` (reeds) |
+| `inkling_edge.py` | `edge.png` (the soft, uneven edge on inkling photographs on Comings & Goings) |
 
 To redraw, from the top folder of the repository (needs Python 3 with
 `numpy` and `Pillow`):
@@ -18,6 +19,10 @@ python3 _tools/scene/mountains_islet.py assets/img/scene
 
 ```bash
 python3 _tools/scene/paper_mist_reeds.py assets/img/scene
+```
+
+```bash
+python3 _tools/scene/inkling_edge.py assets/img/scene
 ```
 
 Every random choice is seeded, so running a script unchanged gives exactly

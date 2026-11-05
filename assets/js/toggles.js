@@ -133,6 +133,15 @@
       btn.className = 'toggle news-more';
       btn.setAttribute('aria-expanded', 'false');
       btn.textContent = 'Show more';
+
+      // If the clamp hides a phrase that opens an inkling, mark the button
+      // with the same small ink dot, so the image can still be found.
+      var bottom = body.getBoundingClientRect().bottom;
+      var hidden = Array.prototype.some.call(
+        body.querySelectorAll('a[href^="#inkling-"]'),
+        function (a) { return a.getBoundingClientRect().top >= bottom - 2; });
+      if (hidden) btn.classList.add('hides-inkling');
+
       body.insertAdjacentElement('afterend', btn);
     });
   }
