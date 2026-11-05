@@ -33,7 +33,7 @@
         {% for ink in item.inklings %}
         <figure class="inkling-source" id="inkling-{{ ink.key }}"{% if ink.seed %} data-seed="{{ ink.seed }}"{% endif %}>
           <img src="/assets/img/inklings/{{ ink.image }}" alt="{{ ink.alt | escape }}" loading="lazy">
-          {% if ink.caption %}<figcaption>{{ ink.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</figcaption>{% endif %}
+          {% if ink.caption %}<figcaption>{{ ink.caption | markdownify | remove: '<p>' | remove: '</p>' | strip | replace: '<a href="http', '<a target="_blank" rel="noopener" href="http' }}</figcaption>{% endif %}
         </figure>
         {% endfor %}
       </div>
