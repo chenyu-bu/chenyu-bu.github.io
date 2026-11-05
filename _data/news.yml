@@ -4,8 +4,8 @@
 # (they are joined into one paragraph): *italics*, [a link](https://...).
 # Links to other sites, and to files such as the CV, open in a new tab.
 #
-# To add an inkling (an image that prints into the margin when a phrase is
-# clicked):
+# To add an inkling (a photograph that opens in the middle of the screen
+# when a phrase is clicked):
 #   1. put the image in assets/img/inklings/ (about 1200 px on the long side);
 #   2. in the text, make the phrase a link to #inkling- plus a short key,
 #      e.g. [Cone Collection](#inkling-cone);
@@ -16,10 +16,12 @@
 #       image: cone-collection.jpg
 #       alt: "What the image shows, for screen readers"
 #       caption: "A short caption, with a credit if needed"
+#       seed: "0.5,0.4"      # optional: where the photo starts to appear,
+#                            # across then down, from 0 to 1 (default 0.5,0.4)
 #
-# An entry can have several inklings. Light areas of an image print as bare
-# paper and dark areas as ink, so photographs with clear light and shade
-# work best.
+# An entry can have several inklings. The photograph is shown in its own
+# colours, with only a soft, uneven edge added, so crop or adjust it
+# beforehand if it needs it.
 
 - date: "September 2026"
   text: >-
@@ -90,17 +92,29 @@
     Concept,” at the [ASA’s 83rd Annual
     Meeting](https://aesthetics-online.org/events/EventDetails.aspx?id=1701810&group=) in
     Baltimore. I spent a free morning at the [Baltimore Museum of Art](https://artbma.org/),
-    whose Cone Collection hangs Matisse returning to the same motifs across the better part of
+    whose [Cone Collection](#inkling-cone) hangs Matisse returning to the same motifs across the better part of
     his career. Standing in front of that, Kania’s question about the cover-concept stopped
     looking like a question about music in particular. Whatever settles it, I doubt it is
     something we read off the object.
+  inklings:
+    - key: cone
+      image: matisse-interior-with-dog.jpg
+      alt: "Detail of Matisse’s Interior with Dog: a grey dog curled asleep on a checked cushion beneath a table with a blue-and-white jar, books and flowers."
+      caption: "Matisse, *Interior with Dog* (1934). Detail. Painted just after the Barnes murals, it sits somewhere between mural and easel painting, as the BMA describes it. The dog has not taken a side."
+      seed: "0.38,0.72"
 
 - date: "May 2025"
   text: >-
     Talk: “Toward a General Theory of Generativism,” at [Metaphysical Mayhem
     2025](https://www.jonathanschaffer.org/mayhem.html), the week-long biennial metaphysics
-    workshop hosted by the Rutgers philosophy department, where the generativism project first
+    workshop hosted by the [Rutgers philosophy department](#inkling-rutgers), where the generativism project first
     got a hearing in a room full of metaphysicians — a plurality as pure as ever.
+  inklings:
+    - key: rutgers
+      image: rutgers-thinker.jpg
+      alt: "A small bronze Thinker on a coiled spring, rising out of a box lettered “Think Outside The Box, Department of Philosophy, Rutgers–New Brunswick”, on a windowsill above a tree-lined campus."
+      caption: "Thinking outside the box and still grounded in it"
+      seed: "0.48,0.28"
 
 - date: "February 2025"
   text: >-

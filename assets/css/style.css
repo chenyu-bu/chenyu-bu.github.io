@@ -684,7 +684,7 @@ and (min-device-width : 768px)  {
 }
 
 /* Abstracts, descriptions and BibTeX sit on a feathered patch of clear
-   paper, like the inklings on Comings & Goings, rather than in a box. */
+   paper rather than in a box. */
 .panel-box,
 .bibtex {
   position: relative;
@@ -830,7 +830,7 @@ and (min-device-width : 768px)  {
    Inklings (Comings & Goings): see assets/js/inklings.js
    ========================================================================== */
 
-/* With scripting on, the source figures are hidden and printed on demand;
+/* With scripting on, the source figures are hidden and opened on demand;
    without it they show under their entry. */
 .has-inklings figure.inkling-source {
   display: none;
@@ -877,6 +877,24 @@ a.inkling-trigger::after {
   margin-left: 3px;
 }
 
+/* "Show more" on an entry whose hidden part holds an inkling. */
+.news-more.hides-inkling[aria-expanded="false"]::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(38, 41, 44, 0.5);
+  vertical-align: 0.55em;
+  margin-left: 4px;
+}
+
+/* Captions are italic, so a title inside one is set upright. */
+figure.inkling-source figcaption em,
+.inkling figcaption em {
+  font-style: normal;
+}
+
 a.inkling-trigger:hover,
 a.inkling-trigger[aria-expanded="true"] {
   background-color: rgba(42, 47, 53, 0.07);
@@ -887,39 +905,70 @@ a.inkling-trigger:focus-visible {
   outline-offset: 2px;
 }
 
+/* The open inkling: the photograph in its own colours, in the middle of the
+   screen over a veil of mist, with its caption underneath at the
+   photograph's width (the table layout makes the caption wrap to the
+   image). The only thing done to the photograph is its edge. */
 .inkling {
-  position: absolute;
-  z-index: 3;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+  display: table;
   margin: 0;
-  opacity: 1;
-  transition: opacity 0.7s ease, filter 0.7s ease;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
 }
 
-/* The margin is also where the islet and reeds are, so each print gets a
-   feathered patch of clear paper under it. */
-.inkling::before {
-  content: "";
-  position: absolute;
-  inset: -34px -30px -46px;
-  z-index: -1;
-  background: radial-gradient(closest-side, rgba(237, 239, 236, 0.95) 62%, rgba(237, 239, 236, 0) 100%);
+.inkling.shown {
+  opacity: 1;
 }
 
 .inkling.leaving {
   opacity: 0;
-  filter: blur(1.2px);
 }
 
-.inkling canvas {
+.inkling img {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: min(88vw, 960px);
+  max-height: 72vh;
+  /* A soft, uneven edge, like the edge of a wash: edge.png (drawn by
+     _tools/scene/inkling_edge.py) only sets how much of each pixel shows
+     near the borders; it does not change any colour. */
+  -webkit-mask-image: url("/assets/img/scene/edge.png");
+  mask-image: url("/assets/img/scene/edge.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* While the photograph is being uncovered, from the seed point outward:
+   the edge and a widening circle, both applied. */
+.inkling img.spreading {
+  -webkit-mask-image:
+    url("/assets/img/scene/edge.png"),
+    radial-gradient(circle at var(--sx) var(--sy), #000 calc(var(--ink, 0px) - 110px), transparent var(--ink, 0px));
+  mask-image:
+    url("/assets/img/scene/edge.png"),
+    radial-gradient(circle at var(--sx) var(--sy), #000 calc(var(--ink, 0px) - 110px), transparent var(--ink, 0px));
+  -webkit-mask-size: 100% 100%, auto;
+  mask-size: 100% 100%, auto;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 .inkling figcaption {
-  margin-top: 0.5em;
+  display: table-caption;
+  caption-side: bottom;
+  padding-top: 0.7em;
+  font-size: 0.95em;
+  color: #4d5459;
   opacity: 0;
-  transition: opacity 0.8s ease 0.7s;
+  transition: opacity 0.8s ease 0.8s;
 }
 
 .inkling.shown figcaption {
@@ -927,22 +976,9 @@ a.inkling-trigger:focus-visible {
 }
 
 .inkling .close {
-  display: none;
-}
-
-.inkling.overlay {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(82vw, 380px);
-}
-
-.inkling.overlay .close {
-  display: block;
   position: absolute;
-  right: -6px;
-  top: -36px;
+  right: 0;
+  top: -2.1em;
   height: auto;
   padding: 2px 0;
   margin: 0;
@@ -960,11 +996,18 @@ a.inkling-trigger:focus-visible {
   cursor: pointer;
 }
 
+.inkling .close:focus-visible {
+  outline: 2px solid rgba(38, 41, 44, 0.5);
+  outline-offset: 3px;
+}
+
 .inkling-veil {
   position: fixed;
   inset: 0;
   z-index: 3;
-  background: radial-gradient(ellipse at center, rgba(237, 239, 236, 0.99) 45%, rgba(237, 239, 236, 0.93) 100%);
+  background: radial-gradient(ellipse at center, rgba(237, 239, 236, 0.97) 40%, rgba(237, 239, 236, 0.93) 100%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   opacity: 0;
   transition: opacity 0.5s ease;
 }
